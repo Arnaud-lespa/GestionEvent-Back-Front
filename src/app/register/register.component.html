@@ -1,0 +1,44 @@
+<div class="w-screen h-screen flex flex-col justify-center items-center bg-hero-login bg-cover bg-center bg-no-repeat ">
+    <div class="w-1/4">
+        <div class="card-login text-center p-5  max-w-md">
+        <h2 class="text-white text-3xl m-4">Créer un compte</h2>
+            <form  [formGroup]="registerForm" (ngSubmit)="register()">
+                
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-4" type="text" placeholder="Pseudo" formControlName="pseudo">
+                    <span class="txt-error" *ngIf="registerForm.get('pseudo')?.errors?.['required'] && registerForm.get('pseudo')?.touched">Champs requis</span>
+                </div>
+
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-4" type="text" placeholder="Nom" formControlName="lastname">
+                    <span class="txt-error" *ngIf="registerForm.get('lastname')?.errors?.['required'] && registerForm.get('lastname')?.touched">Champs requis</span>
+                </div>
+                
+
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-4" type="text" placeholder="Prénom" formControlName="firstname">
+                    <span class="txt-error" *ngIf="registerForm.get('firstname')?.errors?.['required'] && registerForm.get('firstname')?.touched">Champs requis</span>
+                </div>
+
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-2" type="date" placeholder="Date de naissance" formControlName="birthdate">
+                    <span class="txt-error" *ngIf="registerForm.get('birthdate')?.errors?.['required'] && registerForm.get('birthdate')?.touched">Champs requis</span>
+                </div>
+
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-4" type="email" placeholder="Email" formControlName="email">
+                    <span class="txt-error" *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched">Champs requis</span>
+                    <span class="txt-error" *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched  && registerForm.get('email')?.dirty">Adresse mail non valide</span>
+                </div>
+
+                <div class="mb-3">
+                    <input class="w-full rounded-2xl h-8 placeholder: p-4" type="password" placeholder="Mot de passe" formControlName="password" >
+                    <span class="txt-error" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">Champs requis</span>
+                    <span class="txt-error" *ngIf="registerForm.get('password')?.errors?.['pattern'] && registerForm.get('password')?.touched  && registerForm.get('password')?.dirty">il doit contenir une majuscule, une minuscule, un chiffre et un caractère</span>
+                </div>
+
+                <button class="mb-3 btn" type="submit">Créer un compte</button>
+            </form>
+        </div>
+    </div>
+</div>

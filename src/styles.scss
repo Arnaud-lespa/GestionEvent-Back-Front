@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .btn{
+        @apply bg-purple transform hover:scale-110  font-bold p-2 rounded-full 
+    }
+
+    .btn-form{
+        @apply text-white font-bold border-solid border-purple border-2 p-1 hover:bg-purple hover:text-gray
+    }
+
+    .card-login{
+        @apply bg-glass rounded-2xl shadow-log backdrop-blur
+    }
+
+    .txt-error{
+        @apply text-orange m-2.5 text-xs italic
+    }
+
+    .card-event{
+        @apply bg-gray rounded-2xl shadow-event 
+    }
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #272727;
+}
+
+// h1, h2, h3, h4{
+//     font-family: 'Roboto';
+// }
+

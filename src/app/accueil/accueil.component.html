@@ -1,0 +1,32 @@
+<div class=" bg-hero-pattern bg-center w-screen h-screen">
+    <div class="w-screen h-screen flex justify-center items-end">
+        <div class="mb-28 flex flex-col justify-center items-center ">
+        <a href="#ancre" class="btn border-2 border-gray border-solid "><button>Découvrez nos évènements à venir</button></a>  
+        </div>
+    </div>
+</div>
+<h2 class="text-center text-light text-6xl m-10 uppercase font-bold">Les évènements à venir</h2>
+<div id="ancre" class="flex justify-center items-center mt-4 text-white flex-wrap">
+    <div *ngFor="let event of liste " class=" w-1/4 card-event hover:outline-4 hover:outline hover:outline-purple mb-10 mx-4 " >
+        <!-- <div class="card2"> -->
+            <div class="flex justify-between p-4">
+                <h3 class="border-b-4 border-solid border-purple text-xl ">{{event.name}}</h3>
+                <button class="flex items-start" (click)="delete(event.id)" *ngIf="currentMember===event.creatorId.toString()">❌</button>
+            </div>
+            
+            <div class=" px-4">
+                <div>
+                    {{event.description}}
+                </div>
+                <div class="flex justify-between py-4">
+                    <p class="text-green font-bold">Places ▷ {{event.maxGuest}}</p>
+                    <a routerLink="/create/{{event.id}}"><button class="btn text-gray" *ngIf="currentMember!==event.creatorId.toString()&& (!listeID.includes(event.id))  && currentMember!==null ">S'inscrire</button></a>
+                    <div>
+                        <p class="text-light font-bold">Debut ▷ {{event.startDate | date:"dd/MM/yy"}}</p>
+                        <p class="text-light font-bold">Fin ▷ {{event.endDate | date:"dd/MM/yy"}}</p>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</div>

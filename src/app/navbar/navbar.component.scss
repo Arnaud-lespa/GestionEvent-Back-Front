@@ -1,0 +1,70 @@
+.messageDefilant {
+    // display: block;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    max-width: 440px;
+    height: 30px;
+  }
+   
+  .messageDefilant div {
+    position: absolute;
+    min-width: 100%; /* au minimum la largeur du conteneur */
+  }
+   
+  .messageDefilant div span, 
+  .messageDefilant div:after {
+    position: relative;
+    display: inline-block;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    top:0;
+  }
+   
+  .messageDefilant div span {
+    animation: defilement 10s infinite linear;
+    
+  }
+   
+  .messageDefilant div:after {
+    position: absolute;
+    top:0; left:0;
+    content:attr(data-text);
+    animation: defilement2 10s infinite linear;
+    background: #edc;
+  }
+   
+  @keyframes defilement {
+    0% { margin-left: 400px; }
+    100% { margin-left: -100%; }
+  }
+   
+  @keyframes defilement2 {
+    0% { margin-left: 100%; }
+    100% { margin-left: 0%; }
+  }
+
+  .hover-menu-underline {
+    display: inline-block;
+    position: relative;
+    color: #f5f5f5;
+  }
+  
+  .hover-menu-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #C3BEFF;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-menu-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }

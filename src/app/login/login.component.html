@@ -1,0 +1,13 @@
+<div class="w-screen h-screen flex flex-col justify-center items-center bg-hero-login bg-cover bg-center bg-no-repeat">
+    <div class="card-login text-center p-5 max-w-full">
+    <h2 class="text-white text-3xl m-4">Connexion à votre compte </h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="mb-3"><input class="w-full rounded-2xl h-8 placeholder: p-4" type="text" placeholder="identifiant" formControlName="identifier"></div>
+            <div class="mb-3"><input class="w-full rounded-2xl h-8 placeholder: p-4"  type="password" placeholder="Mot de passe" formControlName="password"></div>
+            <button type="submit" class="btn">Connexion</button>
+        </form>
+        <div class="m-4 ">
+        <a routerLink="/register" class="text-white font-bold ">Pas de compte ? <span class="underline font-normal"> Créer un compte </span></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="flex items-center m-4">
+    <div class="flex w-full justify-start text-white">
+        <h1 class="text-2xl m-2 text-light font-bold underline">MusicEvent</h1>
+    </div>
+    <div class="messageDefilant flex justify-center ">
+        <div><span class="text-white ">Festival | Musique | Artiste | Event |</span></div>
+    </div>
+    <div class="flex w-full justify-end">
+        <ul class="flex items-center justify-center">
+            <li class="hover-menu-underline text-xl "><a routerLink="">Accueil</a></li>
+            <li class="hover-menu-underline mr-5 ml-5 text-white text-xl " ><a routerLink="/reservation" *ngIf="connectedUser" >Réservation</a></li>
+            <li class="hover-menu-underline mr-5 text-white text-xl "><a routerLink="/mes-event" *ngIf="connectedUser" >Mes events</a></li>
+        </ul>
+        <div class="overflow">
+            <a routerLink="/login" *ngIf="!connectedUser" ><button class="btn ">Connexion</button></a>
+            <div *ngIf="connectedUser" >
+                <a (click)="logout()"><button class="btn">Déconnexion</button></a>
+            </div>
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,19 @@
+<div class="w-full flex justify-center" >
+  <div class="w-5/12 justify-center">
+    <h2 class="text-6xl font-bold text-white my-6 mx-2">Mes Events</h2>
+    <a routerLink="/createEvent"><button class="btn mx-2 text-md font-bold mb-4">Créer un event</button></a>
+    <div *ngIf="liste" >
+      <div class="p-3 m-2 bg-white rounded-md"  *ngFor="let item of liste" >
+        <div class="flex justify-between" *ngIf="currentMember===item.creatorId.toString()">
+          <h3 class="text-4xl text-center font-bold uppercase text-gray mb-2">{{item.name}}</h3>
+          <button class="flex items-start" (click)="delete(item.id)" >❌</button> 
+        </div>
+          <div class="flex justify-center items-center mt-4">
+  
+            <a routerLink="/update/{{item.id}}"><button  class="btn mx-2">Modifier</button></a> 
+            <button (click)="cancel(item.id)" class="btn">Annuler</button> 
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
